@@ -14,7 +14,12 @@ class CreateBapsTable extends Migration
     public function up()
     {
         Schema::create('baps', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('employee_id')->unsigned();
+            $table->char('ticket_code');
+            $table->text('description');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

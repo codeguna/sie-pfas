@@ -14,8 +14,16 @@ class CreateFacilityDamageTable extends Migration
     public function up()
     {
         Schema::create('facility_damage', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('bap_id')->unsigned();
+            $table->integer('facility_id')->unsigned();
+            $table->text('description');
             $table->timestamps();
+
+            $table->foreign('bap_id')
+                ->references('id')
+                ->on('baps')
+                ->onDelete('cascade');
         });
     }
 
