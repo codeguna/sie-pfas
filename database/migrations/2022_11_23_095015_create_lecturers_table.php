@@ -19,6 +19,11 @@ class CreateLecturersTable extends Migration
             $table->char('nip');
             $table->boolean('status');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

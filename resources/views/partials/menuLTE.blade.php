@@ -13,6 +13,53 @@ with font-awesome or any other icon font library -->
             </a>
         </li>
         <li
+            class="nav-item {{ request()->is('admin/baps/*') ||
+            request()->is('admin/baps') ||
+            request()->is('admin/lecturers') ||
+            request()->is('admin/lecturers/*') ||
+            request()->is('admin/employees') ||
+            request()->is('admin/employees/*') ||
+            request()->is('admin/facilities') ||
+            request()->is('admin/facilities/*')
+                ? 'menu-open'
+                : '' }}">
+            <a href="#"
+                class="nav-link {{ request()->is('admin/baps/*') ||
+                request()->is('admin/baps') ||
+                request()->is('admin/lecturers') ||
+                request()->is('admin/lecturers/*') ||
+                request()->is('admin/employees') ||
+                request()->is('admin/employees/*') ||
+                request()->is('admin/facilities') ||
+                request()->is('admin/facilities/*')
+                    ? 'active'
+                    : '' }}">
+                <i class="nav-icon fas fa-folder-open"></i>
+                <p>
+                    Data master
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.employees.index') }}"
+                        class="nav-link {{ request()->is('admin/employees') || request()->is('admin/employees/*') ? 'active' : '' }}">
+                        <i class="far fas fa-users-cog nav-icon"></i>
+                        <p>Employees</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.facilities.index') }}"
+                        class="nav-link {{ request()->is('admin/facilities') || request()->is('admin/facilities/*') ? 'active' : '' }}">
+                        <i class="far fas fa-laptop-house nav-icon"></i>
+                        <p>Facilities</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li
             class="nav-item {{ request()->is('admin/roles/*') ||
             request()->is('admin/roles') ||
             request()->is('admin/permissions') ||
