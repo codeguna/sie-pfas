@@ -1,7 +1,7 @@
-<div class="modal fade" id="lecturerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" action="{{ route('admin.lecturers.store') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('admin.employees.store') }}" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
@@ -37,22 +37,10 @@
                             name="position" required>
                         {!! $errors->first('position', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
-                    <div class="form-group">
-                        <label>Status Dosen</label><br />
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary active">
-                                Tetap
-                                <input type="radio" name="status" value="1">
-                            </label>
-                            <label class="btn btn-success">
-                                LB
-                                <input type="radio" name="status" value="0">
-                            </label>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
-                    <div class="btn-group" data-toggle="buttons">
+                    <div class="button-group">
                         <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal"><i
                                 class="fas fa-times"></i> Close</button>
                         <button type="submit" class="btn btn-sm btn-info"><i class="fas fa-check"></i> Submit</button>
