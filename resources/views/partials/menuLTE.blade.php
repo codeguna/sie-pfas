@@ -58,6 +58,15 @@ with font-awesome or any other icon font library -->
                     </a>
                 </li>
             </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.lecturers.index') }}"
+                        class="nav-link {{ request()->is('admin/lecturers') || request()->is('admin/lecturers/*') ? 'active' : '' }}">
+                        <i class="fa fas fa-user-tie nav-icon"></i>
+                        <p>Lecturers</p>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li
             class="nav-item {{ request()->is('admin/roles/*') ||

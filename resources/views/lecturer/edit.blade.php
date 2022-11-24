@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('template_title')
+@section('title')
     Update Lecturer
 @endsection
 
@@ -12,11 +12,9 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Lecturer</span>
-                    </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('lecturers.update', $lecturer->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.lecturers.update', $lecturer->id) }}" role="form"
+                            enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

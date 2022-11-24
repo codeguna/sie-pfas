@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('template_title')
+@section('title')
     {{ $lecturer->name ?? 'Show Lecturer' }}
 @endsection
 
@@ -10,16 +10,13 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Lecturer</span>
-                        </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('lecturers.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('admin.lecturers.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>User Id:</strong>
                             {{ $lecturer->user_id }}

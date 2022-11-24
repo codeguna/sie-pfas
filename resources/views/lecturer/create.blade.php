@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('template_title')
+@section('title')
     Create Lecturer
 @endsection
 
@@ -12,11 +12,9 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Lecturer</span>
-                    </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('lecturers.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.lecturers.store') }}" role="form"
+                            enctype="multipart/form-data">
                             @csrf
 
                             @include('lecturer.form')

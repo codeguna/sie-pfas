@@ -1,7 +1,7 @@
-<div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="lecturerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" action="{{ route('admin.employees.store') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('admin.lecturers.store') }}" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
@@ -31,11 +31,16 @@
                             name="nip" required>
                         {!! $errors->first('nip', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Posisi</label>
-                        <input type="text" class="form-control {{ $errors->has('position') ? ' is-invalid' : '' }}"
-                            name="position" required>
-                        {!! $errors->first('position', '<div class="invalid-feedback">:message</div>') !!}
+                    <label>Status Dosen</label>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            Tetap
+                            <input type="radio" name="status" value="1">
+                        </label>
+                        <label class="btn btn-secondary">
+                            LB
+                            <input type="radio" name="status" value="0">
+                        </label>
                     </div>
 
                 </div>

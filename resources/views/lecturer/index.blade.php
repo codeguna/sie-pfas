@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('template_title')
+@section('title')
     Lecturer
 @endsection
 
@@ -11,16 +11,13 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Lecturer') }}
-                            </span>
-
-                             <div class="float-right">
-                                <a href="{{ route('lecturers.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
+                            <div class="float-right">
+                                <button class="btn btn-primary btn-sm float-right" data-toggle="modal"
+                                    data-target="#lecturerModal" data-placement="left">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                @include('lecturer.modal')
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -35,10 +32,9 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
-										<th>User Id</th>
-										<th>Nip</th>
-										<th>Status</th>
+                                        <th>Nama</th>
+                                        <th>Nip</th>
+                                        <th>Status</th>
 
                                         <th></th>
                                     </tr>
@@ -47,18 +43,30 @@
                                     @foreach ($lecturers as $lecturer)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $lecturer->user_id }}</td>
-											<td>{{ $lecturer->nip }}</td>
-											<td>{{ $lecturer->status }}</td>
+
+                                            <td>{{ $lecturer->user->name }}</td>
+                                            <td>{{ $lecturer->nip }}</td>
+                                            <td>
+                                                @if ($lecturer->status == 1)
+                                                    <span class="badge bg-success">Dosen Tetap</span>
+                                                @else
+                                                    <span class="badge bg-warning">Dosen LB</span>
+                                                @endif
+                                            </td>
 
                                             <td>
-                                                <form action="{{ route('lecturers.destroy',$lecturer->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('lecturers.show',$lecturer->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('lecturers.edit',$lecturer->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('admin.lecturers.destroy', $lecturer->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('admin.lecturers.show', $lecturer->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('admin.lecturers.edit', $lecturer->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

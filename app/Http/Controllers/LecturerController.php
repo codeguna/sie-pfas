@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Models\Lecturer;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,8 @@ class LecturerController extends Controller
     public function index()
     {
         $lecturers = Lecturer::paginate();
-
-        return view('lecturer.index', compact('lecturers'))
+        $users = User::doesntHave('employee')->doesntHave('lecturer')->pluck('id', 'name');
+        return view('lecturer.index', compact('lecturers', 'users'))
             ->with('i', (request()->input('page', 1) - 1) * $lecturers->perPage());
     }
 
@@ -47,7 +48,7 @@ class LecturerController extends Controller
 
         $lecturer = Lecturer::create($request->all());
 
-        return redirect()->route('lecturers.index')
+        return redirect()->route('admin.lecturers.index')
             ->with('success', 'Lecturer created successfully.');
     }
 
@@ -73,8 +74,8 @@ class LecturerController extends Controller
     public function edit($id)
     {
         $lecturer = Lecturer::find($id);
-
-        return view('lecturer.edit', compact('lecturer'));
+        $users = User::doesntHave('employee')->doesntHave('lecturer')->pluck('id', 'name');
+        return view('lecturer.edit', compact('lecturer', 'users'));
     }
 
     /**
@@ -90,7 +91,7 @@ class LecturerController extends Controller
 
         $lecturer->update($request->all());
 
-        return redirect()->route('lecturers.index')
+        return redirect()->route('admin.lecturers.index')
             ->with('success', 'Lecturer updated successfully');
     }
 
@@ -103,7 +104,7 @@ class LecturerController extends Controller
     {
         $lecturer = Lecturer::find($id)->delete();
 
-        return redirect()->route('lecturers.index')
+        return redirect()->route('admin.lecturers.index')
             ->with('success', 'Lecturer deleted successfully');
     }
 }
