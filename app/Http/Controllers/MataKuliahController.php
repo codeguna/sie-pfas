@@ -18,7 +18,7 @@ class MataKuliahController extends Controller
      */
     public function index()
     {
-        $mataKuliahs = MataKuliah::paginate();
+        $mataKuliahs = MataKuliah::orderBy('name', 'ASC')->paginate();
 
         return view('mata-kuliah.index', compact('mataKuliahs'))
             ->with('i', (request()->input('page', 1) - 1) * $mataKuliahs->perPage());

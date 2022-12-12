@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('template_title')
+@section('title')
     Create Bap
 @endsection
 
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Bap</span>
+                        <span class="card-title">Berita Acara Pemakaian Ruangan</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.baps.store') }}" role="form"

@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('template_title')
+@section('title')
     Create Room
 @endsection
 

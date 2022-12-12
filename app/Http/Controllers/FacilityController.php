@@ -18,7 +18,7 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        $facilities = Facility::paginate();
+        $facilities = Facility::orderBy('name', 'ASC')->paginate();
 
         return view('facility.index', compact('facilities'))
             ->with('i', (request()->input('page', 1) - 1) * $facilities->perPage());

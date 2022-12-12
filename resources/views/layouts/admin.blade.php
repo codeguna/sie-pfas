@@ -27,6 +27,8 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <header class="app-header navbar">
         <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
             <span class="navbar-toggler-icon"></span>
@@ -50,7 +52,8 @@
                         @foreach (config('panel.available_languages') as $langLocale => $langName)
                             <a class="dropdown-item"
                                 href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }}
-                                ({{ $langName }})</a>
+                                ({{ $langName }})
+                            </a>
                         @endforeach
                     </div>
                 </li>
@@ -207,6 +210,7 @@
         });
     </script>
     @yield('scripts')
+
 </body>
 
 </html>

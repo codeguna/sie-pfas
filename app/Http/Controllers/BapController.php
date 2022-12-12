@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bap;
+use App\Models\Facility;
+use App\Models\MataKuliah;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +35,19 @@ class BapController extends Controller
     public function create()
     {
         $bap = new Bap();
-        return view('bap.create', compact('bap'));
+        $rooms = Room::orderBy('name', 'ASC')->pluck('id', 'name');
+        $mata_kuliah = MataKuliah::orderBy('name', 'ASC')->pluck('id', 'name');
+        $facility = Facility::orderBy('name', 'ASC')->pluck('id', 'name');
+        return view(
+            'bap.create',
+            compact(
+                'bap',
+                'facility',
+                'mata_kuliah',
+                'rooms'
+
+            )
+        );
     }
 
     /**
