@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
-@section('title')
-    Facility
+@section('template_title')
+    Bap
 @endsection
 
 @section('content')
@@ -12,10 +12,14 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
+                            <span id="card_title">
+                                {{ __('Bap') }}
+                            </span>
+
                             <div class="float-right">
-                                <a href="{{ route('admin.facilities.create') }}" class="btn btn-primary btn-sm float-right"
+                                <a href="{{ route('admin.baps.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    <i class="fas fa-plus"></i>
+                                    {{ __('Create New') }}
                                 </a>
                             </div>
                         </div>
@@ -33,31 +37,44 @@
                                     <tr>
                                         <th>No</th>
 
-                                        <th>Name</th>
+                                        <th>User Id</th>
+                                        <th>Employee Id</th>
+                                        <th>Ticket Code</th>
+                                        <th>Room Id</th>
+                                        <th>Mata Kuliah</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Fixed Date</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($facilities as $facility)
+                                    @foreach ($baps as $bap)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-                                            <td>{{ $facility->name }}</td>
+                                            <td>{{ $bap->user_id }}</td>
+                                            <td>{{ $bap->employee_id }}</td>
+                                            <td>{{ $bap->ticket_code }}</td>
+                                            <td>{{ $bap->room_id }}</td>
+                                            <td>{{ $bap->mata_kuliah }}</td>
+                                            <td>{{ $bap->description }}</td>
+                                            <td>{{ $bap->status }}</td>
+                                            <td>{{ $bap->fixed_date }}</td>
 
                                             <td>
-                                                <form action="{{ route('admin.facilities.destroy', $facility->id) }}"
-                                                    method="POST">
+                                                <form action="{{ route('admin.baps.destroy', $bap->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('admin.facilities.show', $facility->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i></a>
+                                                        href="{{ route('admin.baps.show', $bap->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success"
-                                                        href="{{ route('admin.facilities.edit', $facility->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i></a>
+                                                        href="{{ route('admin.baps.edit', $bap->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i></button>
+                                                            class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -67,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $facilities->links() !!}
+                {!! $baps->links() !!}
             </div>
         </div>
     </div>

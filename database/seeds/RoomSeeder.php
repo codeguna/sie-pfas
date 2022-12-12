@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class FacilitySeeder extends Seeder
+class RoomSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,96 +14,137 @@ class FacilitySeeder extends Seeder
      */
     public function run()
     {
-        // check if table users is empty
-        if (DB::table('facilities')->count() == 0) {
+        if (DB::table('rooms')->count() == 0) {
 
-            DB::table('facilities')->insert([
+            DB::table('rooms')->insert([
                 [
-                    'name' => 'PC Desktop',
-
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ],
-                [
-                    'name' => 'Proyektor',
+                    'name' => '101',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'AC',
+                    'name' => '102',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Kursi',
+                    'name' => '103',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Kabel LAN',
+                    'name' => '201',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'kabel HDMI',
+                    'name' => '202',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Mouse',
+                    'name' => '203',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Keyboard',
+                    'name' => '301',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Meja',
+                    'name' => '302',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Monitor',
+                    'name' => '303',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Terminal Listrik',
+                    'name' => '401',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Lampu Ruangan',
+                    'name' => '402',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Pintu Ruangan',
+                    'name' => '403',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'PC Server',
+                    'name' => 'Labkom. 1',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'UPS',
+                    'name' => 'Labkom. 2',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Labkom. 3',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Labkom. 5',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Labkom. 6',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Labkom. 7',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Labkom. 8',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Labkom. 9',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Lab. Perkantoran',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Lab. Jaringan',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),

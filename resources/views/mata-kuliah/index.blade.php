@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
-@section('title')
-    Facility
+@section('template_title')
+    Mata Kuliah
 @endsection
 
 @section('content')
@@ -12,10 +12,14 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
+                            <span id="card_title">
+                                {{ __('Mata Kuliah') }}
+                            </span>
+
                             <div class="float-right">
-                                <a href="{{ route('admin.facilities.create') }}" class="btn btn-primary btn-sm float-right"
+                                <a href="{{ route('admin.mata-kuliah.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    <i class="fas fa-plus"></i>
+                                    {{ __('Create New') }}
                                 </a>
                             </div>
                         </div>
@@ -39,25 +43,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($facilities as $facility)
+                                    @foreach ($mataKuliahs as $mataKuliah)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-                                            <td>{{ $facility->name }}</td>
+                                            <td>{{ $mataKuliah->name }}</td>
 
                                             <td>
-                                                <form action="{{ route('admin.facilities.destroy', $facility->id) }}"
+                                                <form action="{{ route('admin.mata-kuliah.destroy', $mataKuliah->id) }}"
                                                     method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('admin.facilities.show', $facility->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i></a>
+                                                        href="{{ route('admin.mata-kuliah.show', $mataKuliah->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success"
-                                                        href="{{ route('admin.facilities.edit', $facility->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i></a>
+                                                        href="{{ route('admin.mata-kuliah.edit', $mataKuliah->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i></button>
+                                                            class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -67,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $facilities->links() !!}
+                {!! $mataKuliahs->links() !!}
             </div>
         </div>
     </div>

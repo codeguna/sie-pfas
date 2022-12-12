@@ -12,10 +12,36 @@ with font-awesome or any other icon font library -->
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.baps.create') }}"
+                class="nav-link {{ request()->is('admin/baps/create') || request()->is('admin/baps/create/*') ? 'active' : '' }}">
+                <i class="nav-icon fa fa-clipboard"></i>
+                <p>
+                    Input BAP
+                </p>
+            </a>
+        </li>
+        <li class="nav-item {{ request()->is('admin/baps/*') || request()->is('admin/baps') ? 'menu-open' : '' }}">
+            <a href="#"
+                class="nav-link {{ request()->is('admin/baps/*') || request()->is('admin/baps') ? 'active' : '' }}">
+                <i class="nav-icon fa fa-cogs" aria-hidden="true"></i>
+                <p>
+                    Data BAP
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.baps.index') }}"
+                        class="nav-link {{ request()->is('admin/baps') || request()->is('admin/baps/*') ? 'active' : '' }}">
+                        <i class="far fas fa-users-cog nav-icon"></i>
+                        <p>All BAP</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li
-            class="nav-item {{ request()->is('admin/baps/*') ||
-            request()->is('admin/baps') ||
-            request()->is('admin/lecturers') ||
+            class="nav-item {{ request()->is('admin/lecturers') ||
             request()->is('admin/lecturers/*') ||
             request()->is('admin/employees') ||
             request()->is('admin/employees/*') ||
@@ -24,9 +50,7 @@ with font-awesome or any other icon font library -->
                 ? 'menu-open'
                 : '' }}">
             <a href="#"
-                class="nav-link {{ request()->is('admin/baps/*') ||
-                request()->is('admin/baps') ||
-                request()->is('admin/lecturers') ||
+                class="nav-link {{ request()->is('admin/lecturers') ||
                 request()->is('admin/lecturers/*') ||
                 request()->is('admin/employees') ||
                 request()->is('admin/employees/*') ||
@@ -36,7 +60,7 @@ with font-awesome or any other icon font library -->
                     : '' }}">
                 <i class="nav-icon fas fa-folder-open"></i>
                 <p>
-                    Data master
+                    Data Master
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -64,6 +88,24 @@ with font-awesome or any other icon font library -->
                         class="nav-link {{ request()->is('admin/lecturers') || request()->is('admin/lecturers/*') ? 'active' : '' }}">
                         <i class="fa fas fa-user-tie nav-icon"></i>
                         <p>Lecturers</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.mata-kuliah.index') }}"
+                        class="nav-link {{ request()->is('admin/mata-kuliah') || request()->is('admin/mata-kuliah/*') ? 'active' : '' }}">
+                        <i class="fa fa-book nav-icon"></i>
+                        <p>Mata Kuliah</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.rooms.index') }}"
+                        class="nav-link {{ request()->is('admin/rooms') || request()->is('admin/rooms/*') ? 'active' : '' }}">
+                        <i class="fa fa-building nav-icon"></i>
+                        <p>Rooms</p>
                     </a>
                 </li>
             </ul>

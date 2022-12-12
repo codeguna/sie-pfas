@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
-@section('title')
-    {{ $facility->name ?? 'Show Facility' }}
+@section('template_title')
+    {{ $room->name ?? 'Show Room' }}
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Facility</span>
+                            <span class="card-title">Show Room</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('admin.facilities.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('admin.rooms.index') }}"> Back</a>
                         </div>
                     </div>
 
@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <strong>Name:</strong>
-                            {{ $facility->name }}
+                            {{ $room->name }}
                         </div>
 
                     </div>

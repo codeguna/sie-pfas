@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
-@section('title')
-    Facility
+@section('template_title')
+    Room
 @endsection
 
 @section('content')
@@ -12,10 +12,14 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
+                            <span id="card_title">
+                                {{ __('Room') }}
+                            </span>
+
                             <div class="float-right">
-                                <a href="{{ route('admin.facilities.create') }}" class="btn btn-primary btn-sm float-right"
+                                <a href="{{ route('admin.rooms.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    <i class="fas fa-plus"></i>
+                                    {{ __('Create New') }}
                                 </a>
                             </div>
                         </div>
@@ -39,25 +43,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($facilities as $facility)
+                                    @foreach ($rooms as $room)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-                                            <td>{{ $facility->name }}</td>
+                                            <td>{{ $room->name }}</td>
 
                                             <td>
-                                                <form action="{{ route('admin.facilities.destroy', $facility->id) }}"
-                                                    method="POST">
+                                                <form action="{{ route('admin.rooms.destroy', $room->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('admin.facilities.show', $facility->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i></a>
+                                                        href="{{ route('admin.rooms.show', $room->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success"
-                                                        href="{{ route('admin.facilities.edit', $facility->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i></a>
+                                                        href="{{ route('admin.rooms.edit', $room->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i></button>
+                                                            class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -67,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $facilities->links() !!}
+                {!! $rooms->links() !!}
             </div>
         </div>
     </div>

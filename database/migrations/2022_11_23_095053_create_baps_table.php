@@ -18,8 +18,11 @@ class CreateBapsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('employee_id')->unsigned();
             $table->char('ticket_code');
+            $table->integer('room_id')->unsigned();
+            $table->integer('mata_kuliah')->unsigned();
             $table->text('description');
             $table->boolean('status');
+            $table->date('fixed_date')->nullable();
             $table->timestamps();
         });
     }

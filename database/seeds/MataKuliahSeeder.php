@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class FacilitySeeder extends Seeder
+class MataKuliahSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,96 +14,95 @@ class FacilitySeeder extends Seeder
      */
     public function run()
     {
-        // check if table users is empty
-        if (DB::table('facilities')->count() == 0) {
+        if (DB::table('mata_kuliah')->count() == 0) {
 
-            DB::table('facilities')->insert([
+            DB::table('mata_kuliah')->insert([
                 [
-                    'name' => 'PC Desktop',
-
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ],
-                [
-                    'name' => 'Proyektor',
+                    'name' => 'Ekonomi Digital',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'AC',
+                    'name' => 'Manajemen Strategis',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Kursi',
+                    'name' => 'TOEIC Preparation II',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Kabel LAN',
+                    'name' => 'Tata Kelola TI',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'kabel HDMI',
+                    'name' => 'Statistika',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Mouse',
+                    'name' => 'Software Quality Assurance & Legal',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Keyboard',
+                    'name' => 'Sistem Pendukung Keputusan',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Meja',
+                    'name' => 'Sistem Informasi Perkantoran',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Monitor',
+                    'name' => 'Sistem Informasi',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Terminal Listrik',
+                    'name' => 'Sistem Enterprise',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Lampu Ruangan',
+                    'name' => 'Sistem Basis Data',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Pintu Ruangan',
+                    'name' => 'Seminar Program',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'PC Server',
+                    'name' => 'Embedded System',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'UPS',
+                    'name' => 'Piranti Bergerak',
+
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Data Analytic',
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),

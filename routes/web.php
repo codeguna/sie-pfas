@@ -19,4 +19,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('facilities', 'FacilityController');
     Route::resource('employees', 'EmployeeController');
     Route::resource('lecturers', 'lecturerController');
+    Route::resource('baps', 'BapController');
+    Route::resource('rooms', 'RoomController');
+    Route::resource('mata-kuliah', 'MataKuliahController');
 });

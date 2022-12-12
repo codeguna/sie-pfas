@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Facility
+ * Class MataKuliah
  *
  * @property $id
  * @property $name
- * @property $location
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Facility extends Model
+class MataKuliah extends Model
 {
 
   static $rules = [
@@ -24,6 +23,7 @@ class Facility extends Model
   ];
 
   protected $perPage = 20;
+  protected $table = 'mata_kuliah';
 
   /**
    * Attributes that should be mass-assignable.
