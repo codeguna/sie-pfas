@@ -84,7 +84,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label>Mata Kuliah</label>
-            <select class="form-control" name="room_id" required>
+            <select class="form-control" name="mata_kuliah" required>
                 <option selected disabled>== Pilih Mata Kuliah ==</option>
                 @foreach ($mata_kuliah as $value => $key)
                     <option value="{{ $key }}">{{ $value }}</option>
@@ -159,5 +159,11 @@
 </div>
 <span>
     <a id="add_row1" class="btn btn-warning"><i class="fas fa-plus"></i></a>
-    <a id='delete_row1' class="btn btn-primary"><i class="fas fa-trash"></i></a>
+    <a id='delete_row1' class="btn btn-danger"><i class="fas fa-trash"></i></a>
 </span>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</div>
