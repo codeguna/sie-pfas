@@ -122,7 +122,7 @@
                                     <div class="card-footer">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <label>Assign Petugas</label>
+                                                <label>Assign <br />Petugas</label>
                                                 <select class="form-control" name="employee_id" id="">
                                                     <option selected disabled>== Pilih Petugas ==</option>
                                                     @foreach ($users as $value => $key)
@@ -131,7 +131,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-sm-6">
-                                                <label>Tanggal Perbaikan</label>
+                                                <label>Tanggal <br />Perbaikan</label>
                                                 <input class="form-control" type="date" name="fixed_date">
                                             </div>
                                         </div>
