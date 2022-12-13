@@ -19,6 +19,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            <h4>Daftar Fasilitas</h4>
                             @php
                                 $index = 0;
                             @endphp
