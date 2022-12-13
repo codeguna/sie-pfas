@@ -31,4 +31,9 @@ class MataKuliah extends Model
    * @var array
    */
   protected $fillable = ['name'];
+
+  public function bap()
+  {
+    return $this->belongsTo('App\Models\Bap');
+  }
 }

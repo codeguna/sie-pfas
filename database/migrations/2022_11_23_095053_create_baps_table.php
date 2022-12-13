@@ -16,7 +16,7 @@ class CreateBapsTable extends Migration
         Schema::create('baps', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('employee_id')->unsigned();
+            $table->integer('employee_id')->unsigned()->nullable();
             $table->char('ticket_code');
             $table->integer('room_id')->unsigned();
             $table->integer('mata_kuliah')->unsigned();

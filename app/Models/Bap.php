@@ -52,4 +52,16 @@ class Bap extends Model
   {
     return $this->hasMany('App\Models\FacilityDamage', 'bap_id', 'id');
   }
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
+  public function room()
+  {
+    return $this->belongsTo('App\Models\Room');
+  }
+  public function matakuliah()
+  {
+    return $this->belongsTo('App\Models\MataKuliah', 'mata_kuliah', 'id');
+  }
 }
