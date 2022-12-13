@@ -98,7 +98,7 @@
                                                     @if ($bap->employee_id == null)
                                                         <span class="badge bg-secondary">Petugas belum ada</span>
                                                     @else
-                                                        <span class="badge bg-info">{{ $bap->employee_id }}</span>
+                                                        <span class="badge bg-info">{{ $bap->userEmployee->name }}</span>
                                                     @endif
                                                 </p>
                                             </div>
@@ -111,8 +111,8 @@
                                                         <span class="badge bg-warning">Tanggal Perbaikan <br />Belum
                                                             Ditentukan</span>
                                                     @else
-                                                        <span class="badge bg-primary">Sudah diperbaiki pada tanggal
-                                                            {{ $bap->fixed_date }}</span>
+                                                        <span class="badge bg-primary">Sudah diperbaiki <br />pada tanggal
+                                                            <br />{{ $bap->fixed_date }}</span>
                                                     @endif
                                                 </p>
                                             </div>
@@ -121,18 +121,31 @@
                                     <!-- /.card-body -->
                                     <div class="card-footer">
                                         <div class="row">
-                                            <div class="col-sm-6">
-                                                <label>Assign <br />Petugas</label>
-                                                <select class="form-control" name="employee_id" id="">
-                                                    <option selected disabled>== Pilih Petugas ==</option>
-                                                    @foreach ($users as $value => $key)
-                                                        <option value="{{ $key }}">{{ $value }}</option>
-                                                    @endforeach
-                                                </select>
+                                            <div class="col-sm-12">
+                                                <label>Assign Petugas</label>
+                                                <form action="{{ route('admin.baps.assignpetugas', $bap->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <select class="form-control" name="employee_id"
+                                                        onchange="this.form.submit();">
+                                                        <option selected disabled>== Pilih Petugas ==</option>
+                                                        @foreach ($users as $value => $key)
+                                                            <option value="{{ $key }}">{{ $value }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </form>
+
+
                                             </div>
-                                            <div class="col-sm-6">
-                                                <label>Tanggal <br />Perbaikan</label>
-                                                <input class="form-control" type="date" name="fixed_date">
+                                            <div class="col-sm-12">
+                                                <label>Tanggal Perbaikan</label>
+                                                <form action="{{ route('admin.baps.setdonebap', $bap->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <input class="form-control" type="date" name="fixed_date"
+                                                        onchange="this.form.submit();">
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

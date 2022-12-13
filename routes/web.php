@@ -20,6 +20,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('employees', 'EmployeeController');
     Route::resource('lecturers', 'lecturerController');
     Route::resource('baps', 'BapController');
+    // Custom Route BAPS
+    Route::post('/baps/assignpetugas/{bap}', 'BapController@assignPetugas')->name('baps.assignpetugas');
+    Route::post('/baps/setdonebap/{bap}', 'BapController@setDoneBap')->name('baps.setdonebap');
+    // 
     Route::resource('rooms', 'RoomController');
     Route::resource('mata-kuliah', 'MataKuliahController');
 });

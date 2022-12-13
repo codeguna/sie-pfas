@@ -157,5 +157,21 @@ class BapController extends Controller
         $bap                = Bap::find($id);
         $bap->employee_id   = ($idPetugas);
         $bap->update();
+
+        return redirect()->route('admin.baps.index')
+            ->with('success', 'Berhasil melakukan penugasan');
+    }
+
+    public function setDoneBap(Request $request, $id)
+    {
+        $fixed_date = $request->fixed_date;
+
+        $bap                = Bap::find($id);
+        $bap->fixed_date    = ($fixed_date);
+        $bap->status        = 1;
+        $bap->update();
+
+        return redirect()->route('admin.baps.index')
+            ->with('success', 'Berhasil melakukan perbaikan');
     }
 }

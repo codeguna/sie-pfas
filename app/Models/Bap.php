@@ -64,4 +64,9 @@ class Bap extends Model
   {
     return $this->belongsTo('App\Models\MataKuliah', 'mata_kuliah', 'id');
   }
+
+  public function userEmployee()
+  {
+    return $this->belongsTo('App\User', 'employee_id', 'id');
+  }
 }
