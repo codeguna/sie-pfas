@@ -57,7 +57,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary">Selesaikan Perkejaan</button>
+                                <button type="submit" class="btn btn-primary">Selesaikan Pekerjaan</button>
                             </div>
                             </form>
                         </div>
