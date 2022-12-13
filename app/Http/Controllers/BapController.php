@@ -149,4 +149,13 @@ class BapController extends Controller
         return redirect()->route('admin.baps.index')
             ->with('success', 'Bap deleted successfully');
     }
+
+    public function assignPetugas(Request $request, $id)
+    {
+        $idPetugas = $request->employee_id;
+
+        $bap                = Bap::find($id);
+        $bap->employee_id   = ($idPetugas);
+        $bap->update();
+    }
 }

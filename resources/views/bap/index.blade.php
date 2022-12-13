@@ -123,7 +123,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <label>Assign Petugas</label>
-                                                <select class="form-control" name="" id="">
+                                                <select class="form-control" name="employee_id" id="">
                                                     <option selected disabled>== Pilih Petugas ==</option>
                                                     @foreach ($users as $value => $key)
                                                         <option value="{{ $key }}">{{ $value }}</option>
