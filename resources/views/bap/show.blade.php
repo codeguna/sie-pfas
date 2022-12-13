@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    {{ $bap->name ?? 'Show Bap' }}
+    Detail Laporan
 @endsection
 
 @section('content')
@@ -10,51 +10,59 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Bap</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('admin.baps.index') }}"> Back</a>
+                        <h4 class="text-center">R. {{ $bap->room->name }} - {{ $bap->matakuliah->name }}</h4>
+                        <p class="text-sm text-center">
+                            <i class="fa fa-calendar"></i>
+                            {{ $bap->created_at }}
+                        </p>
+                        <p class="text-center">Dosen pengajar: {{ $bap->user->name }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @php
+                                $index = 0;
+                            @endphp
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Nama Faslitas</th>
+                                        <th>Deskripsi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($facility_damage as $facility)
+                                        <tr>
+                                            <td>{{ ++$index }}</td>
+                                            <td>{{ $facility->facility->name }}</td>
+                                            <td>{{ $facility->description }}</td>
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form action="{{ route('admin.baps.setdonebap', $id) }}" method="POST">
+                                    @csrf
+                                    <div class="form-check form-check-inline">
+                                        <label>Tanggal Perbaikan</label>
+                                        <input type="date" class="form-control" name="fixed_date" required>
+                                        <input type="hidden" name="status" value="1">
+                                    </div>
 
-                    <div class="card-body">
-
-                        <div class="form-group">
-                            <strong>User Id:</strong>
-                            {{ $bap->user_id }}
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary">Selesaikan Perkejaan</button>
+                            </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <strong>Employee Id:</strong>
-                            {{ $bap->employee_id }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Ticket Code:</strong>
-                            {{ $bap->ticket_code }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Room Id:</strong>
-                            {{ $bap->room_id }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Mata Kuliah:</strong>
-                            {{ $bap->mata_kuliah }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Description:</strong>
-                            {{ $bap->description }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            {{ $bap->status }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Fixed Date:</strong>
-                            {{ $bap->fixed_date }}
-                        </div>
-
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

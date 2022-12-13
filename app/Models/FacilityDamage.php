@@ -44,4 +44,8 @@ class FacilityDamage extends Model
   {
     return $this->hasOne('App\Models\Bap', 'id', 'bap_id');
   }
+  public function facility()
+  {
+    return $this->belongsTo('App\Models\Facility');
+  }
 }

@@ -103,8 +103,14 @@ class BapController extends Controller
     public function show($id)
     {
         $bap = Bap::find($id);
+        $facility_damage = FacilityDamage::where('bap_id', $id)->get();
+        $id = $id;
 
-        return view('bap.show', compact('bap'));
+        return view('bap.show', compact(
+            'bap',
+            'id',
+            'facility_damage'
+        ));
     }
 
     /**
