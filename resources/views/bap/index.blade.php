@@ -121,32 +121,45 @@
                                     <!-- /.card-body -->
                                     <div class="card-footer">
                                         <div class="row">
-                                            <div class="col-sm-12">
-                                                <label>Assign Petugas</label>
-                                                <form action="{{ route('admin.baps.assignpetugas', $bap->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <select class="form-control" name="employee_id"
-                                                        onchange="this.form.submit();">
-                                                        <option selected disabled>== Pilih Petugas ==</option>
-                                                        @foreach ($users as $value => $key)
-                                                            <option value="{{ $key }}">{{ $value }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </form>
+                                            @if ($bap->fixed_date == null)
+                                                <div class="col-sm-12">
+                                                    <label>Assign Petugas</label>
+                                                    <form action="{{ route('admin.baps.assignpetugas', $bap->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        <select class="form-control" name="employee_id"
+                                                            onchange="this.form.submit();">
+                                                            <option selected disabled>== Pilih Petugas ==</option>
+                                                            @foreach ($users as $value => $key)
+                                                                <option value="{{ $key }}">{{ $value }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </form>
 
 
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <label>Tanggal Perbaikan</label>
-                                                <form action="{{ route('admin.baps.setdonebap', $bap->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <input class="form-control" type="date" name="fixed_date"
-                                                        onchange="this.form.submit();">
-                                                </form>
-                                            </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <label>Tanggal Perbaikan</label>
+                                                    <form action="{{ route('admin.baps.setdonebap', $bap->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        <input class="form-control" type="date" name="fixed_date"
+                                                            onchange="this.form.submit();">
+                                                    </form>
+                                                </div>
+                                            @else
+                                                <div class="col-md-12">
+                                                    <form action="{{ route('admin.baps.unsetdonebap', $bap->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger w-100"><i
+                                                                class="fa fa-times" aria-hidden="true"></i> Batalkan
+                                                            Perbaikan</button>
+                                                    </form>
+                                                </div>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>

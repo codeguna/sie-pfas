@@ -35,7 +35,16 @@ with font-awesome or any other icon font library -->
                     <a href="{{ route('admin.baps.index') }}"
                         class="nav-link {{ request()->is('admin/baps') || request()->is('admin/baps/*') ? 'active' : '' }}">
                         <i class="far fas fa-users-cog nav-icon"></i>
-                        <p>All BAP</p>
+                        <p>Cek BAP</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.baps.index') }}"
+                        class="nav-link {{ request()->is('admin/baps/report') || request()->is('admin/baps/report/*') ? 'active' : '' }}">
+                        <i class="fas fa-chart-bar nav-icon"></i>
+                        <p>Report BAP</p>
                     </a>
                 </li>
             </ul>

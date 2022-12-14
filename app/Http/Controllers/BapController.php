@@ -180,4 +180,15 @@ class BapController extends Controller
         return redirect()->route('admin.baps.index')
             ->with('success', 'Berhasil melakukan perbaikan');
     }
+
+    public function unsetDoneBap($id)
+    {
+        $bap                = Bap::find($id);
+        $bap->fixed_date    = null;
+        $bap->status        = 0;
+        $bap->update();
+
+        return redirect()->route('admin.baps.index')
+            ->with('warning', 'Berhasil pembatalan melakukan perbaikan');
+    }
 }

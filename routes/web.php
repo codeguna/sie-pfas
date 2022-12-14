@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     // Custom Route BAPS
     Route::post('/baps/assignpetugas/{bap}', 'BapController@assignPetugas')->name('baps.assignpetugas');
     Route::post('/baps/setdonebap/{bap}', 'BapController@setDoneBap')->name('baps.setdonebap');
+    Route::post('/baps/unsetdonebap/{bap}', 'BapController@unsetDoneBap')->name('baps.unsetdonebap');
     // 
     Route::resource('rooms', 'RoomController');
     Route::resource('mata-kuliah', 'MataKuliahController');
