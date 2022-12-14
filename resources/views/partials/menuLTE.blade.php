@@ -23,7 +23,7 @@ with font-awesome or any other icon font library -->
         </li>
         <li class="nav-item {{ request()->is('admin/baps/*') || request()->is('admin/baps') ? 'menu-open' : '' }}">
             <a href="#"
-                class="nav-link {{ request()->is('admin/baps/*') || request()->is('admin/baps') ? 'active' : '' }}">
+                class="nav-link {{ request()->is('admin/baps/*') || request()->is('admin/baps') || request()->is('admin/bap/*') || request()->is('admin/bap') ? 'active' : '' }}">
                 <i class="nav-icon fa fa-cogs" aria-hidden="true"></i>
                 <p>
                     Data BAP
@@ -41,10 +41,10 @@ with font-awesome or any other icon font library -->
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('admin.baps.index') }}"
-                        class="nav-link {{ request()->is('admin/baps/report') || request()->is('admin/baps/report/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.baps.reportgeneral') }}"
+                        class="nav-link {{ request()->is('admin/bap/report') || request()->is('admin/bap/report/*') ? 'active' : '' }}">
                         <i class="fas fa-chart-bar nav-icon"></i>
-                        <p>Report BAP</p>
+                        <p>Report Ruangan BAP</p>
                     </a>
                 </li>
             </ul>

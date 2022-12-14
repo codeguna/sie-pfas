@@ -181,6 +181,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Select2 -->
     <script src="{{ asset('adminLTE/plugins/select2/js/select2.full.min.js') }}"></script>
     @yield('scripts')
+    @yield('javascript')
 </body>
 
 </html>

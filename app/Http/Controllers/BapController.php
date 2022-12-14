@@ -9,6 +9,7 @@ use App\Models\MataKuliah;
 use App\Models\Room;
 use App\User;
 use Illuminate\Http\Request;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 /**
  * Class BapController
@@ -190,5 +191,26 @@ class BapController extends Controller
 
         return redirect()->route('admin.baps.index')
             ->with('warning', 'Berhasil pembatalan melakukan perbaikan');
+    }
+
+    public function reportGeneral()
+    {
+        $chart_options = [
+            'chart_title' => 'Frekuensi Ruangan Fasilitas Rusak',
+            'chart_type' => 'pie',
+            'report_type' => 'group_by_relationship',
+            'model' => 'App\Models\Bap',
+
+            'relationship_name' => 'room', // represents function user() on Transaction model
+            'group_by_field' => 'name', // users.name
+
+            'aggregate_function' => 'count',
+            'aggregate_field' => 'name',
+
+            'filter_field' => 'created_at',
+            'filter_days' => 30, // show only transactions for last 30 days
+        ];
+        $chartGeneral = new LaravelChart($chart_options);
+        return view('bap.report.index', compact('chartGeneral'));
     }
 }
