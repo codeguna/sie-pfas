@@ -41,9 +41,18 @@ with font-awesome or any other icon font library -->
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
+                    <a href="{{ route('admin.baps.reportDamage') }}"
+                        class="nav-link {{ request()->is('admin/bap/facilitydamage') || request()->is('admin/bap/facilitydamage/*') ? 'active' : '' }}">
+                        <i class="fas fa-chart-line nav-icon"></i>
+                        <p>Report Kerusakan Fasilitas</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
                     <a href="{{ route('admin.baps.reportgeneral') }}"
                         class="nav-link {{ request()->is('admin/bap/report') || request()->is('admin/bap/report/*') ? 'active' : '' }}">
-                        <i class="fas fa-chart-bar nav-icon"></i>
+                        <i class="fas fa-chart-pie nav-icon"></i>
                         <p>Report Ruangan BAP</p>
                     </a>
                 </li>
@@ -64,7 +73,11 @@ with font-awesome or any other icon font library -->
                 request()->is('admin/employees') ||
                 request()->is('admin/employees/*') ||
                 request()->is('admin/facilities') ||
-                request()->is('admin/facilities/*')
+                request()->is('admin/facilities/*') ||
+                request()->is('admin/rooms') ||
+                request()->is('admin/rooms/*') ||
+                request()->is('admin/mata-kuliah') ||
+                request()->is('admin/mata-kuliah/*')
                     ? 'active'
                     : '' }}">
                 <i class="nav-icon fas fa-folder-open"></i>

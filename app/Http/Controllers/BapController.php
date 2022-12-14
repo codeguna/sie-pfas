@@ -213,4 +213,25 @@ class BapController extends Controller
         $chartGeneral = new LaravelChart($chart_options);
         return view('bap.report.index', compact('chartGeneral'));
     }
+
+    public function reportDamage()
+    {
+        $chart_options = [
+            'chart_title' => 'Frekuensi Kerusakan Fasilitas Rusak',
+            'chart_type' => 'line',
+            'report_type' => 'group_by_relationship',
+            'model' => 'App\Models\FacilityDamage',
+
+            'relationship_name' => 'facility', // represents function user() on Transaction model
+            'group_by_field' => 'name', // users.name
+
+            'aggregate_function' => 'count',
+            'aggregate_field' => 'name',
+
+            'filter_field' => 'created_at',
+            'filter_days' => 30, // show only transactions for last 30 days
+        ];
+        $chartDamage = new LaravelChart($chart_options);
+        return view('bap.report.facilitydamage', compact('chartDamage'));
+    }
 }

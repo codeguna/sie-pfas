@@ -19,7 +19,7 @@
                             <div class="float-right">
                                 <a href="{{ route('admin.rooms.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    {{ __('Create New') }}
+                                    <i class="fas fa-plus"></i>
                                 </a>
                             </div>
                         </div>
@@ -53,14 +53,14 @@
                                                 <form action="{{ route('admin.rooms.destroy', $room->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
                                                         href="{{ route('admin.rooms.show', $room->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> Show</a>
+                                                            class="fa fa-fw fa-eye"></i></a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('admin.rooms.edit', $room->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> Edit</a>
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> Delete</button>
+                                                            class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

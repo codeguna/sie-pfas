@@ -19,7 +19,7 @@
                             <div class="float-right">
                                 <a href="{{ route('admin.mata-kuliah.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    {{ __('Create New') }}
+                                    <i class="fas fa-plus"></i>
                                 </a>
                             </div>
                         </div>
@@ -54,14 +54,14 @@
                                                     method="POST">
                                                     <a class="btn btn-sm btn-primary "
                                                         href="{{ route('admin.mata-kuliah.show', $mataKuliah->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> Show</a>
+                                                            class="fa fa-fw fa-eye"></i></a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('admin.mata-kuliah.edit', $mataKuliah->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> Edit</a>
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> Delete</button>
+                                                            class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

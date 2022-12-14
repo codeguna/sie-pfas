@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('/baps/setdonebap/{bap}', 'BapController@setDoneBap')->name('baps.setdonebap');
     Route::post('/baps/unsetdonebap/{bap}', 'BapController@unsetDoneBap')->name('baps.unsetdonebap');
     Route::get('/bap/report', 'BapController@reportGeneral')->name('baps.reportgeneral');
+    Route::get('/bap/facilitydamage', 'BapController@reportDamage')->name('baps.reportDamage');
     // 
     Route::resource('rooms', 'RoomController');
     Route::resource('mata-kuliah', 'MataKuliahController');
