@@ -8,6 +8,7 @@ use App\Models\FacilityDamage;
 use App\Models\MataKuliah;
 use App\Models\Room;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
@@ -193,20 +194,25 @@ class BapController extends Controller
             ->with('warning', 'Berhasil pembatalan melakukan perbaikan');
     }
 
-    public function reportProcessed()
+    public function reportProcessed(Request $request)
     {
-        $bapDone = Bap::where('status', 1)->count();
-        $bapUnDone = Bap::where('status', 0)->count();
-        $bapTotal = Bap::count();
+        $periode = $request->periode;
+        $date = Carbon::now()->subDays($periode);
+
+        $bapDone = Bap::where('status', 1)->where('created_at', '>=', $date)->count();
+        $bapUnDone = Bap::where('status', 0)->where('created_at', '>=', $date)->count();
+        $bapTotal = Bap::where('created_at', '>=', $date)->count();
 
         return view('bap.report.processed', compact(
             'bapDone',
             'bapUnDone',
-            'bapTotal'
+            'bapTotal',
+            'periode'
         ));
     }
-    public function reportGeneral()
+    public function reportGeneral(Request $request)
     {
+        $periode = $request->periode;
         $chart_options = [
             'chart_title' => 'Frekuensi Ruangan Fasilitas Rusak',
             'chart_type' => 'pie',
@@ -220,17 +226,22 @@ class BapController extends Controller
             'aggregate_field' => 'name',
 
             'filter_field' => 'created_at',
-            'filter_days' => 30, // show only transactions for last 30 days
+            'filter_days' => $periode, // show only transactions for last 30 days
         ];
         $chartGeneral = new LaravelChart($chart_options);
-        return view('bap.report.index', compact('chartGeneral'));
+        return view('bap.report.index', compact(
+            'chartGeneral',
+            'periode'
+        ));
     }
 
-    public function reportDamage()
+    public function reportDamage(Request $request)
     {
+        $periode = $request->periode;
+
         $chart_options = [
             'chart_title' => 'Frekuensi Kerusakan Fasilitas Rusak',
-            'chart_type' => 'line',
+            'chart_type' => 'bar',
             'report_type' => 'group_by_relationship',
             'model' => 'App\Models\FacilityDamage',
 
@@ -241,14 +252,22 @@ class BapController extends Controller
             'aggregate_field' => 'name',
 
             'filter_field' => 'created_at',
-            'filter_days' => 30, // show only transactions for last 30 days
+            'filter_days' => $periode, // show only transactions for last 30 days
         ];
         $chartDamage = new LaravelChart($chart_options);
-        return view('bap.report.facilitydamage', compact('chartDamage'));
+        return view('bap.report.facilitydamage', compact('chartDamage', 'periode'));
     }
 
-    public function selectPeriod(Request $request)
+    public function selectReportDamage()
     {
-        $period = $request->period;
+        return view('bap.report.selectfacilitydamage');
+    }
+    public function selectReportGeneral()
+    {
+        return view('bap.report.selectgeneral');
+    }
+    public function selectReportProcessed()
+    {
+        return view('bap.report.selectprocessed');
     }
 }

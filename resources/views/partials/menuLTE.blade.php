@@ -41,8 +41,8 @@ with font-awesome or any other icon font library -->
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('admin.baps.reportDamage') }}"
-                        class="nav-link {{ request()->is('admin/bap/facilitydamage') || request()->is('admin/bap/facilitydamage/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.baps.selectreportDamage') }}"
+                        class="nav-link {{ request()->is('admin/bap/selectfacilitydamage') || request()->is('admin/bap/selectfacilitydamage/*') ? 'active' : '' }}">
                         <i class="fas fa-chart-line nav-icon"></i>
                         <p>Report Kerusakan Fasilitas</p>
                     </a>
@@ -50,8 +50,8 @@ with font-awesome or any other icon font library -->
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('admin.baps.reportProcessed') }}"
-                        class="nav-link {{ request()->is('admin/bap/reportprocessed') || request()->is('admin/bap/reportprocessed/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.baps.selectReportProcessed') }}"
+                        class="nav-link {{ request()->is('admin/bap/selectreportprocessed') || request()->is('admin/bap/selectreportprocessed/*') ? 'active' : '' }}">
                         <i class="fa fa-cog nav-icon" aria-hidden="true"></i>
                         <p>Report Kerusakan Tertangani</p>
                     </a>
@@ -59,8 +59,8 @@ with font-awesome or any other icon font library -->
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('admin.baps.reportgeneral') }}"
-                        class="nav-link {{ request()->is('admin/bap/report') || request()->is('admin/bap/report/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.baps.selectreportgeneral') }}"
+                        class="nav-link {{ request()->is('admin/bap/selectreportgeneral') || request()->is('admin/bap/selectreportgeneral/*') ? 'active' : '' }}">
                         <i class="fas fa-chart-pie nav-icon"></i>
                         <p>Report Ruangan BAP</p>
                     </a>

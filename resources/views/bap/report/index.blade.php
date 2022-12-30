@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-header">
                         {{ $chartGeneral->options['chart_title'] }}
-                        <p><em>dalam 30 hari terakhir</em></p>
+                        <p><em>dalam {{ $periode }} hari terakhir</em></p>
                     </div>
                     <div class="card-body" style="padding: 10em">
                         <h4 class="card-title"></h4>

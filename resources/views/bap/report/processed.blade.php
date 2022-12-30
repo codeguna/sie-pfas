@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Tertangani vs Belum Tertangani</h3>
-                        <p><em>dalam 30 hari terakhir</em></p>
+                        <p><em>dalam {{ $periode }} hari terakhir</em></p>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title"></h4>

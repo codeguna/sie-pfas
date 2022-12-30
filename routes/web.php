@@ -24,9 +24,15 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('/baps/assignpetugas/{bap}', 'BapController@assignPetugas')->name('baps.assignpetugas');
     Route::post('/baps/setdonebap/{bap}', 'BapController@setDoneBap')->name('baps.setdonebap');
     Route::post('/baps/unsetdonebap/{bap}', 'BapController@unsetDoneBap')->name('baps.unsetdonebap');
+    //Report Area
     Route::get('/bap/report', 'BapController@reportGeneral')->name('baps.reportgeneral');
+    Route::get('/bap/selectreport', 'BapController@selectReportGeneral')->name('baps.selectreportgeneral');
     Route::get('/bap/facilitydamage', 'BapController@reportDamage')->name('baps.reportDamage');
+    Route::get('/bap/selectfacilitydamage', 'BapController@selectReportDamage')->name('baps.selectreportDamage');
     Route::get('/bap/reportprocessed', 'BapController@reportProcessed')->name('baps.reportProcessed');
+    Route::get('/bap/selectreportprocessed', 'BapController@selectReportProcessed')->name('baps.selectReportProcessed');
+    //End of Report Area
+
     // 
     Route::resource('rooms', 'RoomController');
     Route::resource('mata-kuliah', 'MataKuliahController');
