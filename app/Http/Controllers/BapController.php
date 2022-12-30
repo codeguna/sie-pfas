@@ -193,6 +193,18 @@ class BapController extends Controller
             ->with('warning', 'Berhasil pembatalan melakukan perbaikan');
     }
 
+    public function reportProcessed()
+    {
+        $bapDone = Bap::where('status', 1)->count();
+        $bapUnDone = Bap::where('status', 0)->count();
+        $bapTotal = Bap::count();
+
+        return view('bap.report.processed', compact(
+            'bapDone',
+            'bapUnDone',
+            'bapTotal'
+        ));
+    }
     public function reportGeneral()
     {
         $chart_options = [
@@ -233,5 +245,10 @@ class BapController extends Controller
         ];
         $chartDamage = new LaravelChart($chart_options);
         return view('bap.report.facilitydamage', compact('chartDamage'));
+    }
+
+    public function selectPeriod(Request $request)
+    {
+        $period = $request->period;
     }
 }

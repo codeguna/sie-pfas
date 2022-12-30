@@ -50,6 +50,15 @@ with font-awesome or any other icon font library -->
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
+                    <a href="{{ route('admin.baps.reportProcessed') }}"
+                        class="nav-link {{ request()->is('admin/bap/reportprocessed') || request()->is('admin/bap/reportprocessed/*') ? 'active' : '' }}">
+                        <i class="fa fa-cog nav-icon" aria-hidden="true"></i>
+                        <p>Report Kerusakan Tertangani</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
                     <a href="{{ route('admin.baps.reportgeneral') }}"
                         class="nav-link {{ request()->is('admin/bap/report') || request()->is('admin/bap/report/*') ? 'active' : '' }}">
                         <i class="fas fa-chart-pie nav-icon"></i>
