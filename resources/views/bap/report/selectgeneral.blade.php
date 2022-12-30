@@ -12,7 +12,6 @@
                         <div class="mb-3">
                             <form action="{{ route('admin.baps.reportgeneral') }}" method="GET">
                                 <select class="form-control" name="periode" required>
-                                    <option selected disabled value="30">== Pilih Periode ==</option>
                                     <option value="30">30 hari</option>
                                     <option value="90">90 hari</option>
                                     <option value="120">120 hari</option>
