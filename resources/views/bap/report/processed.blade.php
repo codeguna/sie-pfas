@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title')
-    Report Fasilitas Tertangani
+    Report Kerusakan Tertangani
 @endsection
 @section('content')
     <div class="container-fluid">
