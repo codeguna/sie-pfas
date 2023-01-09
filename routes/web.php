@@ -2,7 +2,10 @@
 Route::redirect('/', 'admin/home');
 
 Auth::routes(['register' => false]);
-
+// Google LOGIN
+Route::get('auth/google', 'GoogleController@redirectToGoogle')->name('redirectGoogle');
+Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback')->name('googleCallback');
+// END of Google LOGIN
 // Change Password Routes...
 Route::get('change_password', 'Auth\ChangePasswordController@showChangePasswordForm')->name('auth.change_password');
 Route::patch('change_password', 'Auth\ChangePasswordController@changePassword')->name('auth.change_password');
@@ -30,8 +33,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('/bap/facilitydamage', 'BapController@reportDamage')->name('baps.reportDamage');
     Route::get('/bap/selectfacilitydamage', 'BapController@selectReportDamage')->name('baps.selectreportDamage');
     Route::get('/bap/reportprocessed', 'BapController@reportProcessed')->name('baps.reportProcessed');
-    Route::get('/bap/selectreportprocessed', 'BapController@selectReportProcessed')->name('baps.selectReportProcessed');
-    //End of Report Area
+    Route::get('/bap/selectreportprocessed', 'BapController@selectReportProcessed')->name('baps.selectReportProcessed');    //End of Report Area
 
     // 
     Route::resource('rooms', 'RoomController');
