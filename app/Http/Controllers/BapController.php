@@ -10,7 +10,9 @@ use App\Models\Room;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use Spatie\Permission\Contracts\Role;
 
 /**
  * Class BapController
@@ -26,9 +28,27 @@ class BapController extends Controller
     public function index()
     {
         $baps = Bap::paginate();
-        $users = User::has('employee')->orderBy('name', 'ASC')->pluck('id', 'name');
+        $users = User::has('employee')->wherehas('roles', function ($roles) {
+            $roles->where('name', '=', 'petugas_umum');
+        })->orderBy('name', 'ASC')->pluck('id', 'name');
         return view(
             'bap.index',
+            compact(
+                'baps',
+                'users'
+            )
+        )
+            ->with('i', (request()->input('page', 1) - 1) * $baps->perPage());
+    }
+
+    public function fix()
+    {
+        $getEmployeeId = Auth::user()->id;
+
+        $baps = Bap::where('employee_id', $getEmployeeId)->paginate();
+        $users = User::has('employee')->orderBy('name', 'ASC')->pluck('id', 'name');
+        return view(
+            'bap.fix',
             compact(
                 'baps',
                 'users'
@@ -92,8 +112,8 @@ class BapController extends Controller
                 $facility_damage->save();
             }
         }
-        return redirect()->route('admin.baps.index')
-            ->with('success', 'Bap created successfully.');
+        return redirect()->to('/admin/home')
+            ->with('success', 'Data BAP sudah direkam, terimakasih.');
     }
 
     /**
@@ -179,7 +199,7 @@ class BapController extends Controller
         $bap->status        = 1;
         $bap->update();
 
-        return redirect()->route('admin.baps.index')
+        return redirect()->to('/admin/bap/fix')
             ->with('success', 'Berhasil melakukan perbaikan');
     }
 
@@ -190,7 +210,7 @@ class BapController extends Controller
         $bap->status        = 0;
         $bap->update();
 
-        return redirect()->route('admin.baps.index')
+        return redirect()->to('/admin/bap/fix')
             ->with('warning', 'Berhasil pembatalan melakukan perbaikan');
     }
 

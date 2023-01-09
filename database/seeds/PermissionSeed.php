@@ -21,6 +21,7 @@ class PermissionSeed extends Seeder
         Permission::create(['name' => 'create_bap']);
         Permission::create(['name' => 'delete_bap']);
         Permission::create(['name' => 'update_bap']);
+        Permission::create(['name' => 'fix_bap']);
         //END of BAP MANAGEMENT
         //BAP ASSIGNMENT
         Permission::create(['name' => 'assign_petugas']);

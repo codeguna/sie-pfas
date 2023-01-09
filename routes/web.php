@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('/baps/assignpetugas/{bap}', 'BapController@assignPetugas')->name('baps.assignpetugas');
     Route::post('/baps/setdonebap/{bap}', 'BapController@setDoneBap')->name('baps.setdonebap');
     Route::post('/baps/unsetdonebap/{bap}', 'BapController@unsetDoneBap')->name('baps.unsetdonebap');
+    Route::get('/bap/fix/', 'BapController@fix')->name('bap.fix');
     //Report Area
     Route::get('/bap/report', 'BapController@reportGeneral')->name('baps.reportgeneral');
     Route::get('/bap/selectreport', 'BapController@selectReportGeneral')->name('baps.selectreportgeneral');

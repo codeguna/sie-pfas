@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    Rekap Data BAP
+    Daftar BAP
 @endsection
 
 @section('content')
@@ -17,16 +17,6 @@
                                     <div class="col-md-6"></div>
                                 </div>
                             </span>
-
-                            <div class="float-right">
-                                @can('create_bap')
-                                    <a href="{{ route('admin.baps.create') }}" class="btn btn-success btn-sm float-right"
-                                        data-placement="left">
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                    </a>
-                                @endcan
-
-                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -54,18 +44,9 @@
                                         </p>
 
                                         <div class="card-tools">
-                                            <form action="{{ route('admin.baps.destroy', $bap->id) }}" method="POST">
-                                                <a class="btn btn-sm btn-primary "
-                                                    href="{{ route('admin.baps.show', $bap->id) }}"
-                                                    title="Detail Kerusakan"><i class="fa fa-fw fa-eye"></i></a>
-                                                @csrf
-                                                @method('DELETE')
-                                                @can('delete_bap')
-                                                    <button type="submit" class="btn btn-light btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i></button>
-                                                @endcan
-
-                                            </form>
+                                            <a class="btn btn-sm btn-primary "
+                                                href="{{ route('admin.baps.show', $bap->id) }}" title="Detail Kerusakan"><i
+                                                    class="fa fa-fw fa-eye"></i></a>
                                         </div>
                                         <!-- /.card-tools -->
                                     </div>
@@ -125,51 +106,7 @@
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
-                                    <div class="card-footer">
-                                        <div class="row">
-                                            @if ($bap->fixed_date == null)
-                                                @can('assign_petugas')
-                                                    <div class="col-sm-12">
-                                                        <label>Assign Petugas</label>
-                                                        <form action="{{ route('admin.baps.assignpetugas', $bap->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <select class="form-control" name="employee_id"
-                                                                onchange="this.form.submit();">
-                                                                <option selected disabled>== Pilih Petugas ==</option>
-                                                                @foreach ($users as $value => $key)
-                                                                    <option value="{{ $key }}">{{ $value }}
-                                                                    </option>
-                                                                @endforeach
-                                                            </select>
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <label>Tanggal Perbaikan</label>
-                                                        <form action="{{ route('admin.baps.setdonebap', $bap->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <input class="form-control" type="date" name="fixed_date"
-                                                                onchange="this.form.submit();">
-                                                        </form>
-                                                    </div>
-                                                @endcan
-                                            @else
-                                                @can('undone_bap')
-                                                    <div class="col-md-12">
-                                                        <form action="{{ route('admin.baps.unsetdonebap', $bap->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-danger w-100"><i
-                                                                    class="fa fa-times" aria-hidden="true"></i> Batalkan
-                                                                Perbaikan</button>
-                                                        </form>
-                                                    </div>
-                                                @endcan
-                                            @endif
 
-                                        </div>
-                                    </div>
                                 </div>
                         </div>
                         @endforeach

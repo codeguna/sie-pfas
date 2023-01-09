@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title')
-    Welcome
+    Selamat Datang,
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -10,13 +10,18 @@
 
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h5 class="m-0">Featured</h5>
+                        <h5 class="m-0">di Sistem Informasi Eksekutif - BAP</h5>
                     </div>
                     <div class="card-body">
-                        <h6 class="card-title">Special title treatment</h6>
+                        <h6 class="card-title">Ada yang bisa kami bantu?</h6>
 
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">Untuk memulai pelaporan BAP, silahkan klik tombol dibawah ini atau melalui menu
+                            disamping</p>
+                        @hasrole('dosen')
+                            <a href="{{ url('/admin/baps/create') }}" class="btn btn-primary"> <i class="fa fa-paper-plane"
+                                    aria-hidden="true"></i> Lapor
+                                Sekarang</a>
+                        @endhasrole
                     </div>
                 </div>
             </div>

@@ -108,7 +108,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="d-block">
                             Hai,
                             <strong>
-                                {{ Auth::User()->name }}
+                                {{ Auth::User()->name }} <br>{{ trim(Auth::user()->getRoleNames(), '[]"') }}
                             </strong>
                         </a>
                     </div>

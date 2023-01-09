@@ -22,9 +22,10 @@ class RoleSeed extends Seeder
         $role->givePermissionTo('finish_bap');
         $role->givePermissionTo('undone_bap');
         $role->givePermissionTo('view_report');
+        $role->givePermissionTo('fix_bap');
 
         $role = Role::create(['name' => 'petugas_umum']);
-        $role->givePermissionTo('view_bap');
+        $role->givePermissionTo('fix_bap');
         $role->givePermissionTo('finish_bap');
         $role->givePermissionTo('undone_bap');
 
@@ -36,7 +37,7 @@ class RoleSeed extends Seeder
         $role->givePermissionTo('view_report');
 
         $role = Role::create(['name' => 'dosen']);
-        $role->givePermissionTo('view_bap');
+        $role->givePermissionTo('create_bap');
 
         $role = Role::create(['name' => 'manager']);
         $role->givePermissionTo('view_report');

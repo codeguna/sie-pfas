@@ -46,20 +46,23 @@
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-md-6">
-                                <form action="{{ route('admin.baps.setdonebap', $id) }}" method="POST">
-                                    @csrf
-                                    <div class="form-check form-check-inline">
-                                        <label>Tanggal Perbaikan</label>
-                                        <input type="date" class="form-control" name="fixed_date" required>
-                                        <input type="hidden" name="status" value="1">
-                                    </div>
+                            @can('finish_bap')
+                                <div class="col-md-6">
+                                    <form action="{{ route('admin.baps.setdonebap', $id) }}" method="POST">
+                                        @csrf
+                                        <div class="form-check form-check-inline">
+                                            <label>Tanggal Perbaikan</label>
+                                            <input type="date" class="form-control" name="fixed_date" required>
+                                            <input type="hidden" name="status" value="1">
+                                        </div>
 
-                            </div>
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary">Selesaikan Pekerjaan</button>
-                            </div>
-                            </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">Selesaikan Pekerjaan</button>
+                                </div>
+                                </form>
+                            @endcan
+
                         </div>
                     </div>
                 </div>

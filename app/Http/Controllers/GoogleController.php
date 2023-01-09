@@ -41,6 +41,7 @@ class GoogleController extends Controller
                 ]);
 
                 Auth::login($newUser);
+                $newUser->assignrole('dosen');
 
                 return redirect()->intended('dashboard');
             }
